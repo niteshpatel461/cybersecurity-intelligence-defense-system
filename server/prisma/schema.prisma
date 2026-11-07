@@ -1,0 +1,34 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model SecurityAdvisory {
+  id              String   @id @default(uuid())
+  advisoryId      String   @unique
+  cve             String?
+  title           String
+  severity        String   // critical, high, medium, low
+  category        String
+  summary         String
+  date            String
+  published       String
+  cvssScore       Float?
+  createdAt       DateTime @default(now())
+}
+
+model IncidentReport {
+  id              String   @id @default(uuid())
+  ticketId        String   @unique
+  reporterEmail   String
+  incidentType    String
+  severity        String   @default("medium")
+  description     String
+  status          String   @default("Triage_Queued")
+  createdAt       DateTime @default(now())
+}
+

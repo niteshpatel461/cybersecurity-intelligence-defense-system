@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: sentinelcore-backend
+    env: node
+    plan: starter
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: CORS_ORIGIN
+        value: https://sentinelcore.lovable.app,http://localhost:5173
+      - key: RATE_LIMIT_SCANNER_MAX
+        value: 30
+      - key: RATE_LIMIT_SCANNER_WINDOW_MS
+        value: 60000
+

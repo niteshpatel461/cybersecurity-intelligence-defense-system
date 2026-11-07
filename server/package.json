@@ -1,0 +1,33 @@
+{
+  "name": "sentinelcore-backend",
+  "version": "1.0.0",
+  "description": "SentinelCore Cybersecurity Intelligence & Tools API Server",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node --test tests/health.test.js tests/advisories.test.js tests/password.test.js tests/scanUrl.test.js tests/report.test.js tests/rateLimit.test.js"
+  },
+  "keywords": [
+    "cybersecurity",
+    "express",
+    "security-hub",
+    "entropy",
+    "url-scanner",
+    "cve-advisories"
+  ],
+  "author": "SentinelCore Security Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "sanitize-html": "^2.14.0"
+  },
+  "devDependencies": {
+    "supertest": "^7.0.0"
+  }
+}
